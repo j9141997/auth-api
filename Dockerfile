@@ -5,10 +5,10 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
 WORKDIR /myapp
-COPY src/Gemfile /myapp/Gemfile
-COPY src/Gemfile.lock /myapp/Gemfile.lock
+COPY rails/Gemfile /myapp/Gemfile
+COPY rails/Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
-COPY ./src /myapp
+COPY ./rails /myapp
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/

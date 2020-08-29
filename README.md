@@ -51,12 +51,12 @@ $ docker-compose run web rails db:create
 5. docker を起動
 
 ```
-docker-compose up -d
+$ docker-compose up -d
 ```
 
 6. http://localhost:3001 にアクセスし、確認
 
 ```
-http://localhost:3001
+$ open http://localhost:3001
 // ポートは3001に設定しているため、変更したければdocker-compose, dockerfileの変更が必要
 ```

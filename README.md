@@ -50,18 +50,21 @@ default: &default
   encoding: unicode
   host: db
   username: postgres
-  password: password # docker-compose.ymlのPOSTGRES_PASSWORDで指定した値
+  password: password
+  # docker-compose.ymlのPOSTGRES_PASSWORDで指定した値
   pool: 5
 :
 :
 development:
   <<: *default
   database: myapp_development
+  # 必要に応じてDB名変更
 :
 :
 test:
   <<: *default
   database: myapp_test
+    # 必要に応じてDB名変更
 ```
 
 7. DB を作成する

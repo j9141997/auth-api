@@ -9,17 +9,27 @@
 
 1. docker-compose run を実行し、アプリケーションを生成
 
-```
+```bash
 $ docker-compose run web rails new . --force --no-deps --database=postgresql
 ```
 
 2. アプリケーション生成後、build
 
-```
+```bash
 $ docker-compose build
 ```
 
-3. database.yml を変更
+3. .env を作成し、環境変数を設定する
+
+```bash
+$ vim .env
+```
+
+```
+DB_PASSWORD=hogehoge
+```
+
+4. database.yml を変更
 
 ```yml
 # 設定箇所のみ抜粋
@@ -42,19 +52,19 @@ test:
   database: myapp_test
 ```
 
-4. DB を作成する
+5. DB を作成する
 
-```
+```bash
 $ docker-compose run web rails db:create
 ```
 
-5. docker を起動
+6. docker を起動
 
-```
+```bash
 $ docker-compose up -d
 ```
 
-6. http://localhost:3001 にアクセスし、確認
+7. http://localhost:3001 にアクセスし、確認
 
 ```
 $ open http://localhost:3001

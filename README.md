@@ -7,19 +7,31 @@
 
 # Usage
 
-1. docker-compose run を実行し、アプリケーションを生成
+1. git clone
+
+```bash
+git clone https://github.com/j9141997/rails_on_docker_base.git { new project name }
+```
+
+2. push 先リポジトリを変更
+
+```bash
+ $ git remote set-url origin { new url }
+```
+
+3. docker-compose run を実行し、アプリケーションを生成
 
 ```bash
 $ docker-compose run web rails new . --force --no-deps --database=postgresql
 ```
 
-2. アプリケーション生成後、build
+4. アプリケーション生成後、build
 
 ```bash
 $ docker-compose build
 ```
 
-3. .env を作成し、環境変数を設定する
+5. .env を作成し、環境変数を設定する
 
 ```bash
 $ vim .env
@@ -29,7 +41,7 @@ $ vim .env
 DB_PASSWORD=hogehoge
 ```
 
-4. database.yml を変更
+6. database.yml を変更
 
 ```yml
 # 設定箇所のみ抜粋
@@ -52,19 +64,19 @@ test:
   database: myapp_test
 ```
 
-5. DB を作成する
+7. DB を作成する
 
 ```bash
 $ docker-compose run web rails db:create
 ```
 
-6. docker を起動
+8. docker を起動
 
 ```bash
 $ docker-compose up -d
 ```
 
-7. http://localhost:3001 にアクセスし、確認
+9. http://localhost:3001 にアクセスし、確認
 
 ```
 $ open http://localhost:3001

@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: <%= Rails.application.credentials.db[:password] %>
+  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: auth-api_development
+
+test:
+  <<: *default
+  database: auth-api_test
+
+production:
+  <<: *default
+  database: auth-api_production
+  username: auth-api
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

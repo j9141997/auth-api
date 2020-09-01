@@ -1,87 +1,24 @@
-# Rails6 on Docker
+# README
 
-# Requirement
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-- Ruby 2.6.6
-- Rails 6.0.3.2
+Things you may want to cover:
 
-# Usage
+* Ruby version
 
-1. git clone
+* System dependencies
 
-```bash
-git clone https://github.com/j9141997/rails_on_docker_base.git { new project name }
-```
+* Configuration
 
-2. push 先リポジトリを変更
+* Database creation
 
-```bash
- $ git remote set-url origin { new url }
-```
+* Database initialization
 
-3. docker-compose run を実行し、アプリケーションを生成
+* How to run the test suite
 
-```bash
-$ docker-compose run web rails new . --force --no-deps --database=postgresql
-```
+* Services (job queues, cache servers, search engines, etc.)
 
-4. アプリケーション生成後、build
+* Deployment instructions
 
-```bash
-$ docker-compose build
-```
-
-5. .env を作成し、環境変数を設定する
-
-```bash
-$ vim .env
-```
-
-```
-DB_PASSWORD=hogehoge
-```
-
-6. database.yml を変更
-
-```yml
-# 設定箇所のみ抜粋
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: db
-  username: postgres
-  password: password
-  # docker-compose.ymlのPOSTGRES_PASSWORDで指定した値
-  pool: 5
-:
-:
-development:
-  <<: *default
-  database: myapp_development
-  # 必要に応じてDB名変更
-:
-:
-test:
-  <<: *default
-  database: myapp_test
-    # 必要に応じてDB名変更
-```
-
-7. DB を作成する
-
-```bash
-$ docker-compose run web rails db:create
-```
-
-8. docker を起動
-
-```bash
-$ docker-compose up -d
-```
-
-9. http://localhost:3001 にアクセスし、確認
-
-```
-$ open http://localhost:3001
-// ポートは3001に設定しているため、変更したければdocker-compose, dockerfileの変更が必要
-```
+* ...
